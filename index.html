@@ -1,18 +1,59 @@
-<!doctype html>
-<html lang="en" data-bs-theme="dark">
-
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>Blazzy Awards</title>
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<title>Blazzy Awards</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
+<body style="background-color: black;">
 
-<body style="padding: 20px; background-color: black;">
-    <h1>Placeholder Test Site</h1>
-    <a href="http://192.168.86.49:1880/blazzyVote/">Vote Now</a>
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <div class="w3-center">
+  <h4 class="w3-animate-opacity">The 4th Annual</h4>
+  <img src="src/StraightBlazzyAwards.png" height="100px" class="w3-xlarge w3-animate-opacity" style="object-fit: contain; max-width: 100%; max-height: 100%;">
+  <div style="padding-top: 1%;"></div>
+  </div>
+</header>
+
+<div class="w3-padding-32 w3-animate-bottom w3-theme" style="text-align: center; border: solid;">
+    <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright"><i class="fa fa-remove"></i></span>
+    <h3>Are you at the awards show right now?</h3>
+    <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="window.location.href = 'http://192.168.86.49:1880/blazzyVote'" style="font-weight:900;">Start Voting!</button>
+    <p><i>This button will only work if you are at the awards show and on the correct wifi network!</i></p>
+</div>
+     
+<div class="w3-center w3-theme">
+  <h2>Containers</h2>
+  <p>Use containers to create headers, sections and footers.</p>
+</div>   
+
+
+
+<div class="w3-padding w3-white w3-display-container w3-theme">
+  <h2>London</h2>
+  <p>London is the capital city of England. It is the most populous city in the United Kingdom,
+  with a metropolitan area of over 13 million inhabitants.</p>
+  <p>Standing on the River Thames, London has been a major settlement for two millennia,
+  its history going back to its founding by the Romans, who named it Londinium.</p>
+  <p>By the way, you can add a close icon to all containers if you want the ability to hide them. Look to your right!</p>
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-dark w3-padding-16">
+  <h3>Footer</h3>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-theme-light w3-padding">Go To Top</span>&nbsp;   
+    <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+  <p>Remember to check out our&nbsp;&nbsp;<a href="w3css_references.asp" class="w3-btn w3-theme-light" target="_blank">W3.CSS Reference</a></p>
+</footer>
+
 </body>
+</html>
