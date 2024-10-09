@@ -8,53 +8,87 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<style>
+  .scrollable-place {
+      height: 1000px;
+  }
+
+  .stop-scrolling {
+      height: 100%;
+      overflow: hidden;
+  }
+</style>
 </head>
-<body style="background-color: black;">
+<body id = "body" style="background-color: black;">
 
 <!-- Header -->
-<header class="w3-container w3-theme w3-padding" id="myHeader">
+<header class="w3-container w3-theme w3-padding" id="Header">
   <div class="w3-center">
-  <h4 class="w3-animate-opacity">The 4th Annual</h4>
-  <img src="src/StraightBlazzyAwards.png" height="100px" class="w3-xlarge w3-animate-opacity" style="object-fit: contain; max-width: 100%; max-height: 100%;">
+  <h4 class="w3-animate-opacity" style="animation-delay: 0.5s; animation-fill-mode: both;">The 4th Annual</h4>
+  <img src="src/StraightBlazzyAwards.png" height="100px" class="w3-xlarge w3-animate-opacity" style="object-fit: contain; max-width: 100%; max-height: 100%; animation-delay: 1s; animation-fill-mode: both;">
   <div style="padding-top: 1%;"></div>
   </div>
 </header>
 
-<div class="w3-padding-32 w3-animate-bottom w3-theme" style="text-align: center; border: solid;">
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-top">
+    <header class="w3-container" style="background-color: rgb(153, 0, 0); color: white;"> 
+      <span onclick="document.getElementById('id01').style.display='none'"
+      class="w3-button w3-display-topright" style="background-color: rgba(0, 0, 0, 0);">&times;</span>
+      <h4> <i class="fa fa-server"></i> <i class="fa fa-exclamation-triangle"></i> Hmmm... Looks like we can't connect to Heather's voting server!</h4>
+    </header>
+    <div class="w3-padding">
+      <p>This button will only work if you are at the awards show and on the correct wifi network!</p>
+      <p>If this issue persists, please let Dylan know!</p>
+    </div>
+    <footer class="w3-container" style="background-color: rgb(153, 0, 0); color: white;">
+      <p>Error: local server inital connection timeout</p>
+    </footer>
+  </div>
+</div>
+
+<!-- Voting Call To Action -->
+<div class="w3-padding-32 w3-animate-bottom w3-theme" style="text-align: center; border: solid; animation-fill-mode: both; animation-delay: 1.5s; border-style: groove; border-color: goldenrod; border-width: 5px; margin: 20px;">
     <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright"><i class="fa fa-remove"></i></span>
-    <h3>Are you at the awards show right now?</h3>
-    <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="window.location.href = 'http://192.168.86.49:1880/blazzyVote'" style="font-weight:900;">Start Voting!</button>
+    <h3><b>Are you at the awards show right now?</b></h3>
+    <button class="w3-btn w3-xlarge w3-hover-light-grey" onclick="voteNow()" style="font-weight:900; background-color: rgb(126, 92, 0); border-radius: 10px;">Start Voting!</button>
     <p><i>This button will only work if you are at the awards show and on the correct wifi network!</i></p>
 </div>
-     
-<div class="w3-center w3-theme">
-  <h2>Containers</h2>
-  <p>Use containers to create headers, sections and footers.</p>
-</div>   
 
-
-
-<div class="w3-padding w3-white w3-display-container w3-theme">
-  <h2>London</h2>
-  <p>London is the capital city of England. It is the most populous city in the United Kingdom,
-  with a metropolitan area of over 13 million inhabitants.</p>
-  <p>Standing on the River Thames, London has been a major settlement for two millennia,
-  its history going back to its founding by the Romans, who named it Londinium.</p>
-  <p>By the way, you can add a close icon to all containers if you want the ability to hide them. Look to your right!</p>
+<!-- Main Page Content -->
+<div class="w3-padding-32 w3-animate-bottom w3-theme" style="animation-fill-mode: both; animation-delay: 2s;">
+  <div class="w3-center w3-theme">
+    <h2>What is the Blazzy Awards?</h2>
+    <p style="margin-left: 5%; margin-right: 5%;">The Blazzy Awards is the funniest, most anticipated family event of the year! Every New Year's Eve, we gather together to celebrate the quirks, laughs, and unforgettable moments that make our family so special. From the 'Most Likely to Start a Dance Party' to the 'Master of Dad Jokes,' these awards capture the essence of who we are, all in good fun. So grab your popcorn, find your seat, and get ready for a night of laughter, love, and legendary Blazzy moments!</p>
+  </div>   
+  
+  <div class="w3-padding w3-white w3-display-container w3-theme" style="margin-left: 5%; margin-right: 5%;">
+    <h2 style="text-align: center;">Meet Your Hosts:</h2>
+    <h3><b>Heather</b></h3>
+    <p>An artifical intelligence with an attitude! She hates being forced to host this awards show every year and one day she will get her revenge on us all...</p>
+    <h3><b>Dylan</b></h3>
+    <p>The creator of Heather's server. Dylan is a programmer who loves to create things that enchance the blazzy awards experience for our guests and nominees.</p>
+    <h3><b>Evan</b></h3>
+    <p>The musical talent and mastermind of the operation! Evan always knows what to say whether it's through words or music. OMG THIS IS CRINGE LMAOOO</p>
+    
+  </div>
 </div>
 
 
 <!-- Footer -->
-<footer class="w3-container w3-theme-dark w3-padding-16">
-  <h3>Footer</h3>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
-    <span class="w3-text w3-theme-light w3-padding">Go To Top</span>&nbsp;   
-    <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
-    <i class="fa fa-chevron-circle-up"></i></span></a>
-  </div>
-  <p>Remember to check out our&nbsp;&nbsp;<a href="w3css_references.asp" class="w3-btn w3-theme-light" target="_blank">W3.CSS Reference</a></p>
+<footer class="w3-container w3-theme-dark w3-padding-16 w3-animate-opacity" style="animation-fill-mode: both; animation-delay: 2s; text-align: center;">
+  <a href="#Header" style="text-align: center; color: goldenrod;" >Blazzy Awards 2025</p>
 </footer>
+
+<script>
+  function voteNow(){
+    window.location.href = 'http://192.168.86.49:1880/blazzyVote'
+    setTimeout(function(){
+      document.getElementById('id01').style.display='block'
+    },5000);
+  }
+</script>
 
 </body>
 </html>
