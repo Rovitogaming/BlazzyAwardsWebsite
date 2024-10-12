@@ -8,16 +8,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-<style>
-  .scrollable-place {
-      height: 1000px;
-  }
-
-  .stop-scrolling {
-      height: 100%;
-      overflow: hidden;
-  }
-</style>
 </head>
 <body id = "body" style="background-color: black;">
 
@@ -52,14 +42,15 @@
 <div class="w3-padding-32 w3-animate-bottom w3-theme" style="text-align: center; border: solid; animation-fill-mode: both; animation-delay: 1.5s; border-style: groove; border-color: goldenrod; border-width: 5px; margin: 20px;">
     <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright"><i class="fa fa-remove"></i></span>
     <h3><b>Are you at the awards show right now?</b></h3>
-    <button class="w3-btn w3-xlarge w3-hover-light-grey" onclick="voteNow()" style="font-weight:900; background-color: rgb(126, 92, 0); border-radius: 10px;">Start Voting!</button>
+    <button id = "startVotingButton" class="w3-btn w3-xlarge w3-hover-light-grey" onclick="voteNow()" style="font-weight:900; background-color: rgb(126, 92, 0); border-radius: 10px;">Start Voting!</button>
+    <p id="connectingMessage" style="display: none;"><b>Connecting to Heathers server...</b></p>
     <p><i>This button will only work if you are at the awards show and on the correct wifi network!</i></p>
 </div>
 
 <!-- Main Page Content -->
 <div class="w3-padding-32 w3-animate-bottom w3-theme" style="animation-fill-mode: both; animation-delay: 2s;">
   <div class="w3-center w3-theme">
-    <h2>What is the Blazzy Awards?</h2>
+    <h2>What are the Blazzy Awards?</h2>
     <p style="margin-left: 5%; margin-right: 5%;">The Blazzy Awards is the funniest, most anticipated family event of the year! Every New Year's Eve, we gather together to celebrate the quirks, laughs, and unforgettable moments that make our family so special. From the 'Most Likely to Start a Dance Party' to the 'Master of Dad Jokes,' these awards capture the essence of who we are, all in good fun. So grab your popcorn, find your seat, and get ready for a night of laughter, love, and legendary Blazzy moments!</p>
   </div>   
   
@@ -70,7 +61,7 @@
     <h3><b>Dylan</b></h3>
     <p>The creator of Heather's server. Dylan is a programmer who loves to create things that enchance the blazzy awards experience for our guests and nominees.</p>
     <h3><b>Evan</b></h3>
-    <p>The musical talent and mastermind of the operation! Evan always knows what to say whether it's through words or music. OMG THIS IS CRINGE LMAOOO</p>
+    <p>The musical talent and mastermind of the operation! Evan always knows what to say whether it's through words or music.</p>
     
   </div>
 </div>
@@ -78,15 +69,41 @@
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-dark w3-padding-16 w3-animate-opacity" style="animation-fill-mode: both; animation-delay: 2s; text-align: center;">
-  <a href="#Header" style="text-align: center; color: goldenrod;" >Blazzy Awards 2025</p>
+  <a href="#Header" style="text-align: center; color: goldenrod;" >© Blazzy Awards - 2025</p>
 </footer>
 
 <script>
+  var connectionInProgress = false
   function voteNow(){
-    window.location.href = 'http://192.168.86.49:1880/blazzyVote'
-    setTimeout(function(){
-      document.getElementById('id01').style.display='block'
-    },5000);
+    if (connectionInProgress == false){
+      connectionInProgress = true
+      document.getElementById("startVotingButton").setAttribute("disabled", true);
+      window.location.href = 'http://192.168.86.49:1880/blazzyVote'
+      var i = 0;
+      document.getElementById("connectingMessage").style.display = "block";
+      document.getElementById("connectingMessage").innerHTML = "Connecting to Heathers server"
+
+      function connectingLoop() {         
+        setTimeout(function() {
+          if (i % 3 == 0){
+            document.getElementById("connectingMessage").innerHTML = "Connecting to Heathers server"
+          }
+          document.getElementById("connectingMessage").innerHTML = document.getElementById("connectingMessage").innerHTML.concat(".");
+          i++;                   
+          if (i < 10) {          
+            connectingLoop();            
+          }                      
+        }, 500)
+      }
+
+      connectingLoop();
+      setTimeout(function() {
+        document.getElementById("connectingMessage").style.display = "none";
+        document.getElementById('id01').style.display = "block";
+        connectionInProgress = false
+        document.getElementById("startVotingButton").removeAttribute("disabled");
+      }, 5000)
+    }
   }
 </script>
 
