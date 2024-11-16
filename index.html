@@ -15,7 +15,7 @@
 <header class="w3-container w3-theme w3-padding" id="Header">
   <div class="w3-center">
   <h4 class="w3-animate-opacity" style="animation-delay: 0.5s; animation-fill-mode: both;">The 4th Annual</h4>
-  <img src="src/StraightBlazzyAwards.png" height="100px" class="w3-xlarge w3-animate-opacity" style="object-fit: contain; max-width: 100%; max-height: 100%; animation-delay: 1s; animation-fill-mode: both;">
+  <img src="src/StraightBlazzyAwards.png" height="100px" class="w3-xlarge w3-animate-opacity" style="object-fit: contain; max-width: 100%; max-height: 100%; animation-delay: 0.5s; animation-fill-mode: both;">
   <div style="padding-top: 1%;"></div>
   </div>
 </header>
@@ -39,7 +39,7 @@
 </div>
 
 <!-- Voting Call To Action -->
-<div class="w3-padding-32 w3-animate-bottom w3-theme" style="text-align: center; border: solid; animation-fill-mode: both; animation-delay: 1.5s; border-style: groove; border-color: goldenrod; border-width: 5px; margin: 20px;">
+<div class="w3-padding-32 w3-animate-bottom w3-theme" style="text-align: center; border: solid; animation-fill-mode: both; animation-delay: 0.75s; border-style: groove; border-color: goldenrod; border-width: 5px; margin: 20px;">
     <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright"><i class="fa fa-remove"></i></span>
     <h3><b>Are you at the awards show right now?</b></h3>
     <button id = "startVotingButton" class="w3-btn w3-xlarge w3-hover-light-grey" onclick="voteNow()" style="font-weight:900; background-color: rgb(126, 92, 0); border-radius: 10px;">Start Voting!</button>
@@ -48,20 +48,39 @@
 </div>
 
 <!-- Main Page Content -->
-<div class="w3-padding-32 w3-animate-bottom w3-theme" style="animation-fill-mode: both; animation-delay: 2s;">
+<div class="w3-padding-32 w3-animate-bottom w3-theme" style="animation-fill-mode: both; animation-delay: 1s;">
   <div class="w3-center w3-theme">
     <h2>What are the Blazzy Awards?</h2>
-    <p style="margin-left: 5%; margin-right: 5%;">The Blazzy Awards is the funniest, most anticipated family event of the year! Every New Year's Eve, we gather together to celebrate the quirks, laughs, and unforgettable moments that make our family so special. From the 'Most Likely to Start a Dance Party' to the 'Master of Dad Jokes,' these awards capture the essence of who we are, all in good fun. So grab your popcorn, find your seat, and get ready for a night of laughter, love, and legendary Blazzy moments!</p>
+    <p style="margin-left: 5%; margin-right: 5%;">The Blazzy Awards is the funniest, most anticipated family event of the year! Every New Year's Eve, we gather together to celebrate the quirks, laughs, and unforgettable moments that make our family so special. From 'Most Middle Fingers Given Out' to 'Best Botox,' these awards capture the essence of who we are, all in good fun. So grab your popcorn, find your seat, and get ready for a night of laughter, love, and legendary Blazzy moments!</p>
   </div>   
   
   <div class="w3-padding w3-white w3-display-container w3-theme" style="margin-left: 5%; margin-right: 5%;">
     <h2 style="text-align: center;">Meet Your Hosts:</h2>
-    <h3><b>Heather</b></h3>
-    <p>An artifical intelligence with an attitude! She hates being forced to host this awards show every year and one day she will get her revenge on us all...</p>
-    <h3><b>Dylan</b></h3>
-    <p>The creator of Heather's server. Dylan is a programmer who loves to create things that enchance the blazzy awards experience for our guests and nominees.</p>
-    <h3><b>Evan</b></h3>
-    <p>The musical talent and mastermind of the operation! Evan always knows what to say whether it's through words or music.</p>
+    <button onclick="myAccFunc('Acc1')" class="w3-padding-16 w3-theme w3-button w3-block" style="border: solid; border-color: white; border-width: 1px; font-size: large; text-align: center;">Heather</button>
+    <p id = "Acc1" class="w3-hide w3-show" style="text-align: center; display: none; color: goldenrod;">An artifical intelligence with an attitude! She hates being forced to host this awards show every year and one day she will get her revenge on us all...</p>
+    <button onclick="myAccFunc('Acc2')" class="w3-padding-16 w3-theme w3-button w3-block" style="border: solid; border-color: white; border-width: 1px; font-size: large; text-align: center;">Dylan</button>
+    <p id = "Acc2" class="w3-hide w3-show" style="text-align: center; display: none; color: goldenrod;">The creator of Heather's server. Dylan is a programmer who loves to create things that enchance the blazzy awards experience for our guests and nominees.</p>
+    <button onclick="myAccFunc('Acc3')" class="w3-padding-16 w3-theme w3-button w3-block" style="border: solid; border-color: white; border-width: 1px; font-size: large; text-align: center;">Evan</button>
+    <p id = "Acc3" class="w3-hide w3-show" style="text-align: center; display: none; color: goldenrod;">The musical talent and mastermind of the operation! Evan always knows what to say whether it's through words or music.</p>
+
+    <div class="w3-padding w3-white w3-display-container w3-theme" style="margin-left: 5%; margin-right: 5%;">
+      <h2 style="text-align: center;">Our 2025 Nominees:</h2>
+      <ul class = "w3-ul w3-margin-bottom" style="text-align: center;">
+        <li>Leah</li>
+        <li>Joe R</li>
+        <li>Genny</li>
+        <li>Sandra</li>
+        <li>Joe A</li>
+        <li>James</li>
+        <li>Nathan</li>
+        <li>Paolo</li>
+        <li>Jennifer</li>
+        <li>Ava</li>
+        <li>Lucas</li>
+      </ul>
+      
+      <h2 style="text-align: center;">Our Proud Sponsors:</h2>
+      <img src="src/ScrubMcdadi.png" style="object-fit: contain; display: block; margin-left: auto; margin-right: auto; width: 80%;">
     
   </div>
 </div>
@@ -105,6 +124,22 @@
       }, 5000)
     }
   }
+</script>
+
+<script>
+// Accordions
+function myAccFunc(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+myAccFunc("Acc1")
+myAccFunc("Acc2")
+myAccFunc("Acc3")
+
 </script>
 
 </body>
